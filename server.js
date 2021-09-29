@@ -1,13 +1,14 @@
 require("dotenv").config();
-import { ApolloServer, gql } from "apollo-server";
-import schema from "./schema";
+import { ApolloServer } from "apollo-server";
+import { typeDefs, resolvers } from "./schema";
 
 const server = new ApolloServer({
-  schema,
+  typeDefs,
+  resolvers,
 });
 
 const PORT = process.env.PORT;
 
 server
   .listen(PORT)
-  .then(() => console.log(`Server is running on http://localhost:${PORT}`));
+  .then(({ url }) => console.log(`🚀 Server is running on ${url} ✅`));
