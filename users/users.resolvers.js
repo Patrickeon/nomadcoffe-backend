@@ -12,7 +12,7 @@ export default {
         email,
         password,
         location,
-        avatarURL,
+        avatar,
         githubUsername,
       }
     ) => {
@@ -37,7 +37,7 @@ export default {
             lastName,
             password: uglyPassword,
             location,
-            avatarURL,
+            avatar,
             githubUsername,
           },
         });
