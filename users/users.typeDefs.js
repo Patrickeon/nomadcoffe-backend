@@ -13,18 +13,11 @@ export default gql`
     password: String!
     createdAt: String!
     updatedAt: String!
-  }
-
-  type Mutation {
-    createAccount(
-      firstname: String!
-      lastName: String
-      username: String!
-      email: String!
-      location: String!
-      avatar: String!
-      githubUsername: String!
-      password: String!
-    ): MutationResponse
+    following: [User]
+    followers: [User]
+    totalFollowing: Int!
+    totalFollowers: Int!
+    isMe: Boolean!
+    isFollowing: Boolean!
   }
 `;
