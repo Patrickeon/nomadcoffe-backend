@@ -8,13 +8,14 @@
     "dev": "nodemon --exec ./node_modules/.bin/babel-node src/server --delay 2",
     "migrate": "npx prisma migrate dev --preview-feature",
     "studio": "npx prisma studio",
-    "build": "babel src --out-dir build",
+    "build": "babel-node src --out-dir build",
     "start": "babel-node build/server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "7.15.7",
     "@graphql-tools/load-files": "6.4.0",
     "@graphql-tools/merge": "8.1.2",
     "@graphql-tools/schema": "8.2.0",
