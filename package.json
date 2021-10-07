@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "dev": "nodemon --exec ./node_modules/.bin/babel-node src/server --delay 2",
     "migrate": "npx prisma migrate dev --preview-feature",
-    "studio": "npx prisma studio"
+    "studio": "npx prisma studio",
+    "build": "babel src --out-dir build",
+    "start": "node build/server"
   },
   "keywords": [],
   "author": "",
@@ -27,8 +30,10 @@
   },
   "devDependencies": {
     "@babel/node": "7.15.4",
+    "@babel/plugin-transform-runtime": "7.15.8",
     "@babel/preset-env": "7.15.6",
     "nodemon": "2.0.13",
+    "prettier-plugin-prisma": "3.1.1",
     "prisma": "3.1.1"
   }
 }
