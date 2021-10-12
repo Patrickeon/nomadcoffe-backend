@@ -5,23 +5,12 @@ export default {
   Mutation: {
     createAccount: async (
       _,
-      {
-        firstname,
-        lastName,
-        username,
-        email,
-        password,
-        location,
-        avatar,
-        githubUsername,
-      }
+      { name, username, email, password, location, avatar, githubUsername }
     ) => {
       try {
-        console.log("test");
         const existingUser = await client.user.findFirst({
           where: { OR: [{ username }, { email }, { githubUsername }] },
         });
-        console.log(existingUser);
         if (existingUser) {
           return {
             ok: false,
@@ -33,8 +22,7 @@ export default {
           data: {
             username,
             email,
-            firstname,
-            lastName,
+            name,
             password: uglyPassword,
             location,
             avatar,
